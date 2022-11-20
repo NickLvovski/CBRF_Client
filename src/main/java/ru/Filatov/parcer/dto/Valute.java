@@ -1,5 +1,7 @@
 package ru.Filatov.parcer.dto;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
 public class Valute {
     private String id;
     private Integer numCode;
@@ -24,6 +26,7 @@ public class Valute {
         return id;
     }
 
+    @JacksonXmlProperty(localName = "ID")
     public void setId(String id) {
         this.id = id;
     }
@@ -32,6 +35,7 @@ public class Valute {
         return numCode;
     }
 
+    @JacksonXmlProperty(localName = "NumCode")
     public void setNumCode(Integer numCode) {
         this.numCode = numCode;
     }
@@ -40,6 +44,7 @@ public class Valute {
         return charCode;
     }
 
+    @JacksonXmlProperty(localName = "CharCode")
     public void setCharCode(String charCode) {
         this.charCode = charCode;
     }
@@ -48,6 +53,7 @@ public class Valute {
         return nominal;
     }
 
+    @JacksonXmlProperty(localName = "Nominal")
     public void setNominal(Integer nominal) {
         this.nominal = nominal;
     }
@@ -56,6 +62,7 @@ public class Valute {
         return name;
     }
 
+    @JacksonXmlProperty(localName = "Name")
     public void setName(String name) {
         this.name = name;
     }
@@ -66,5 +73,10 @@ public class Valute {
 
     public void setValue(Double value) {
         this.value = value;
+    }
+
+    @JacksonXmlProperty(localName = "Value")
+    public void setValue(String value){
+        this.value = Double.valueOf(value.replace(",", "."));
     }
 }

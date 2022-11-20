@@ -7,7 +7,7 @@ import java.util.List;
 public class CurrencyExchangeRepositorySqlitempl implements CurrencyExchangeRepository {
 
     @Override
-    public CurrencyExchange findBild(Integer id) {
+    public CurrencyExchange findByid(Integer id) {
         return null;
     }
 
