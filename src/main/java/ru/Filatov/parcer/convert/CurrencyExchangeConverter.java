@@ -29,9 +29,10 @@ public class CurrencyExchangeConverter {
                 .atZone(ZoneId.systemDefault())
                 .toLocalDate();
 
-        for(Valute valute: valuteList){
+        for(int i = 0; i < valuteList.size(); i++){
+            Valute valute = valuteList.get(i);
             CurrencyExchange currencyExchange = new CurrencyExchange();
-            currencyExchange.setId(Integer.valueOf(valute.getId().substring(1)));
+            currencyExchange.setId(i + 1);
             currencyExchange.setValue(valute.getValue());
             currencyExchange.setNominal(valute.getNominal());
             currencyExchange.setCurrencyName(valute.getName());

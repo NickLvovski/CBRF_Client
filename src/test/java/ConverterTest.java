@@ -20,7 +20,7 @@ public class ConverterTest {
         CurrencyExchange firstCurEx = currencyExchanges.get(0);
         Assert.assertNotNull(firstCurEx);
         Assert.assertNotNull(firstCurEx.getId());
-        Assert.assertEquals((Integer) 1010, firstCurEx.getId());
+        Assert.assertEquals((Integer) 1, firstCurEx.getId());
         Assert.assertNotNull(firstCurEx.getValue());
         Assert.assertEquals(18.0377, firstCurEx.getValue(), 0.0001);
         Assert.assertNotNull(firstCurEx.getNominal());
@@ -38,7 +38,7 @@ public class ConverterTest {
         CurrencyExchange secondCurEx = currencyExchanges.get(1);
         Assert.assertNotNull(secondCurEx);
         Assert.assertNotNull(secondCurEx.getId());
-        Assert.assertEquals((Integer) 1035, secondCurEx.getId());
+        Assert.assertEquals((Integer) 2, secondCurEx.getId());
         Assert.assertNotNull(secondCurEx.getValue());
         Assert.assertEquals(50.8763, secondCurEx.getValue(), 0.0001);
         Assert.assertNotNull(secondCurEx.getNominal());
@@ -57,11 +57,11 @@ public class ConverterTest {
         Assert.assertNotNull(currencyExchanges);
         Assert.assertNotNull(lastCurEx);
         Assert.assertNotNull(lastCurEx.getId());
-        Assert.assertEquals((Integer) 1820, lastCurEx.getId());
+        Assert.assertEquals((Integer) currencyExchanges.size(), lastCurEx.getId());
         Assert.assertNotNull(lastCurEx.getValue());
         Assert.assertEquals(26.2568, lastCurEx.getValue(), 0.0001);
         Assert.assertNotNull(lastCurEx.getNominal());
-        Assert.assertEquals((Integer)100, lastCurEx.getNominal());
+        Assert.assertEquals((Integer) 100, lastCurEx.getNominal());
         Assert.assertNotNull(lastCurEx.getCurrencyName());
         Assert.assertEquals("Японских иен", lastCurEx.getCurrencyName());
         Assert.assertNotNull(lastCurEx.getCurrencyCode());
