@@ -2,13 +2,13 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import ru.Filatov.parcer.dto.ValCurs;
 import ru.Filatov.parcer.dto.Valute;
-import ru.Filatov.parcer.http.CentralBankOfRussia;
+import ru.Filatov.parcer.http.CentralBankOfRussiaClient;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class CentralBankOfRussiaTest {
-    CentralBankOfRussia cbr = CentralBankOfRussia.getInstance();
+    CentralBankOfRussiaClient cbr = CentralBankOfRussiaClient.getInstance();
     ValCurs valcurs = cbr.getCurrencyExchange("19/12/2002");
     SimpleDateFormat dt = new SimpleDateFormat("dd.MM.yyyy");
     List<Valute> valuteList = valcurs.getValuteList();

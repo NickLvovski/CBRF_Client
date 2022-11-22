@@ -2,7 +2,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import ru.Filatov.parcer.convert.CurrencyExchangeConverter;
 import ru.Filatov.parcer.dto.ValCurs;
-import ru.Filatov.parcer.http.CentralBankOfRussia;
+import ru.Filatov.parcer.http.CentralBankOfRussiaClient;
 import ru.Filatov.parcer.model.CurrencyExchange;
 
 import java.time.LocalDate;
@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class ConverterTest {
-    CentralBankOfRussia cbr = CentralBankOfRussia.getInstance();
+    CentralBankOfRussiaClient cbr = CentralBankOfRussiaClient.getInstance();
     CurrencyExchangeConverter converter = CurrencyExchangeConverter.getInstance();
     DateTimeFormatter dt = DateTimeFormatter.ofPattern("dd.MM.yyyy");
     ValCurs valcurs = cbr.getCurrencyExchange("19/12/2002");

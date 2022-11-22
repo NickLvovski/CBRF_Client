@@ -5,12 +5,12 @@ import retrofit.RestAdapter;
 import retrofit.converter.JacksonConverter;
 import ru.Filatov.parcer.dto.ValCurs;
 
-public class CentralBankOfRussia {
+public class CentralBankOfRussiaClient {
     private static final String BASE_URL = "https://www.cbr.ru/";
-    private static CentralBankOfRussia instance;
+    private static CentralBankOfRussiaClient instance;
     private static CentralBankOfRussiaService client;
 
-    private CentralBankOfRussia(){
+    private CentralBankOfRussiaClient(){
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(BASE_URL)
                 .setConverter(new JacksonConverter(new XmlMapper()))
@@ -18,9 +18,9 @@ public class CentralBankOfRussia {
         client = restAdapter.create(CentralBankOfRussiaService.class);
     }
 
-    public static CentralBankOfRussia getInstance() {
+    public static CentralBankOfRussiaClient getInstance() {
         if (instance == null) {
-            instance = new CentralBankOfRussia();
+            instance = new CentralBankOfRussiaClient();
         }
         return instance;
     }
