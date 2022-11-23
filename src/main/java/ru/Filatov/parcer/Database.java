@@ -44,21 +44,20 @@ public class Database {
             connection = DriverManager.getConnection(url);
             initCurrencyExchangeTable();
         }catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     private void initCurrencyExchangeTable(){
-        try {
-            Statement stmt = connection.createStatement();
+        try(Statement stmt = connection.createStatement()) {
             stmt.execute("DROP TABLE IF EXISTS currency_exchange");
             stmt.execute("CREATE TABLE currency_exchange(" +
                     "id INTEGER PRIMARY KEY," +
-                    "currany_value FLOAT NOT NULL," +
+                    "currency_value FLOAT NOT NULL," +
                     "currency_nominal INTEGER NOT NULL," +
                     "currency_name VARCHAR(50) NOT NULL," +
                     "currency_code VARCHAR(3) NOT NULL," +
-                    "currency_date DATE NOT NULL)");
+                    "currency_date VARCHAR(15) NOT NULL)");
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -71,7 +70,7 @@ public class Database {
                 instance = null;
             }
         }catch(SQLException e){
-            System.out.print(e.getMessage());
+            e.printStackTrace();
         }
     }
 }
