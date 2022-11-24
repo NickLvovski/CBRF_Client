@@ -1,4 +1,4 @@
-package ru.Filatov.parcer.convert;
+package ru.Filatov.parcer.convertation;
 
 import ru.Filatov.parcer.dto.ValCurs;
 import ru.Filatov.parcer.dto.Valute;

@@ -62,7 +62,6 @@ public class CurrencyExchangeRepositorySqlitempl implements CurrencyExchangeRepo
         }
     }
 
-
     public List<CurrencyExchange> findAll() {
         List<CurrencyExchange> currencyExchanges = new LinkedList<>();
         try(Statement stmt = connection.createStatement()) {
@@ -131,6 +130,21 @@ public class CurrencyExchangeRepositorySqlitempl implements CurrencyExchangeRepo
     }
 
     public Integer update(CurrencyExchange currency) {
-        return null;
+        try(Statement stmt = connection.createStatement()){
+            String sql = "UPDATE currency_exchange" +
+                    "SET id=" + currency.getId().toString() + "," +
+                    "currency_value=" + currency.getValue().toString() + "," +
+                    "currency_nominal=" + currency.getNominal().toString() + "," +
+                    "currency_name=" + "\"" + currency.getCurrencyName() + "\"" + "," +
+                    "currency_code=" + "\"" + currency.getCurrencyCode() + "\"" + "," +
+                    "currency_date=" + "\"" + currency.getDate().toString() + "\"" +
+                    String.format("\nWHERE id LIKE '%d'", currency.getId());
+
+            stmt.executeUpdate(sql);
+            return 0;
+        }catch (SQLException e){
+            e.printStackTrace();
+            return -1;
+        }
     }
 }

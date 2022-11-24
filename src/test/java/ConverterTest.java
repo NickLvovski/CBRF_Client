@@ -1,6 +1,6 @@
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
-import ru.Filatov.parcer.convert.CurrencyExchangeConverter;
+import ru.Filatov.parcer.convertation.CurrencyExchangeConverter;
 import ru.Filatov.parcer.dto.ValCurs;
 import ru.Filatov.parcer.http.CentralBankOfRussiaClient;
 import ru.Filatov.parcer.model.CurrencyExchange;
