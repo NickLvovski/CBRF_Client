@@ -1,8 +1,19 @@
 package ru.Filatov.parcer.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
 import java.time.LocalDate;
 
 public class CurrencyExchange {
+    public static final String TABLE_NAME = "currency_exchange";
+    public static final String COLUMN_ID = "id";
+    public static final String COLUMN_VALUE = "value";
+    public static final String COLUMN_NOMINAL = "nominal";
+    public static final String COLUMN_CURRENCY_NAME = "currency_name";
+    public static final String COLUMN_CURRENCY_CODE = "currency_code";
+    public static final String COLUMN_DATE = "date";
+
     private Integer id;
     private Double value;
     private Integer nominal;
@@ -52,6 +63,12 @@ public class CurrencyExchange {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    @JacksonXmlProperty(localName = "date")
+    @JsonProperty(value = "date")
+    public String getDateAsString(){
+        return date.toString();
     }
 
     public void setDate(LocalDate date) {

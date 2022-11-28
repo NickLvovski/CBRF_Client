@@ -9,7 +9,7 @@ import java.time.ZoneId;
 import java.util.LinkedList;
 import java.util.List;
 
-public class CurrencyExchangeConverter {
+public class CurrencyExchangeConverter implements CurrencyExchangeConverterService{
     private static CurrencyExchangeConverter instance;
 
     private CurrencyExchangeConverter(){}
@@ -21,6 +21,7 @@ public class CurrencyExchangeConverter {
         return instance;
     }
 
+    @Override
     public List<CurrencyExchange> convert(ValCurs valCurs){
         List<Valute> valuteList = valCurs.getValuteList();
         List<CurrencyExchange> result = new LinkedList<>();

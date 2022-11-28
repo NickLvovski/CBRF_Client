@@ -12,6 +12,16 @@ import java.sql.Statement;
 public class Database {
     private Connection connection;
     private static Database instance;
+
+    private static final String SQL_QUERY = """
+                    CREATE TABLE currency_exchange(
+                    id INTEGER PRIMARY KEY, 
+                    "value" FLOAT NOT NULL,
+                    nominal INTEGER NOT NULL,
+                    currency_name VARCHAR(50) NOT NULL,
+                    currency_code VARCHAR(3) NOT NULL,
+                    "date" VARCHAR(15) NOT NULL);
+                    """;
     private Database(){
         prepareDirectory();
         initDb();
@@ -51,13 +61,7 @@ public class Database {
     private void initCurrencyExchangeTable(){
         try(Statement stmt = connection.createStatement()) {
             stmt.execute("DROP TABLE IF EXISTS currency_exchange");
-            stmt.execute("CREATE TABLE currency_exchange(" +
-                    "id INTEGER PRIMARY KEY," +
-                    "currency_value FLOAT NOT NULL," +
-                    "currency_nominal INTEGER NOT NULL," +
-                    "currency_name VARCHAR(50) NOT NULL," +
-                    "currency_code VARCHAR(3) NOT NULL," +
-                    "currency_date VARCHAR(15) NOT NULL)");
+            stmt.execute(SQL_QUERY);
         } catch (SQLException e){
             e.printStackTrace();
         }
