@@ -24,7 +24,7 @@ public class CurrencyExchangeRepositoryTest {
     }
     public void testSelectFirst(){
 
-        CurrencyExchange db_cur = cers.findByid(1);
+        CurrencyExchange db_cur = cers.findById(1);
 
         Assert.assertNotNull(db_cur);
         Assert.assertNotNull(db_cur.getId());
@@ -44,7 +44,7 @@ public class CurrencyExchangeRepositoryTest {
     @Test
     public void testSelectSecond(){
         insertCurrenciesToDb();
-        CurrencyExchange db_cur = cers.findByid(2);
+        CurrencyExchange db_cur = cers.findById(2);
         Assert.assertNotNull(db_cur);
         Assert.assertNotNull(db_cur.getId());
         Assert.assertEquals((Integer) 2, db_cur.getId());

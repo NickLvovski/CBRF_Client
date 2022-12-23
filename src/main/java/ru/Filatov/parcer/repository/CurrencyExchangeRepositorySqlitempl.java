@@ -16,7 +16,7 @@ public class CurrencyExchangeRepositorySqlitempl implements CurrencyExchangeRepo
     }
 
     @Override
-    public CurrencyExchange findByid(Integer id) {
+    public CurrencyExchange findById(Integer id) {
         CurrencyExchange currencyExchange = null;
         try(Statement stmt = connection.createStatement()) {
             String query = String.format("SELECT * FROM currency_exchange WHERE id LIKE '%d'", id);

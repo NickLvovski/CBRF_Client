@@ -4,7 +4,7 @@ import ru.Filatov.parcer.model.CurrencyExchange;
 import java.util.List;
 
 public interface CurrencyExchangeRepository {
-    CurrencyExchange findByid(Integer id);
+    CurrencyExchange findById(Integer id);
     List<CurrencyExchange> findAll();
     List<CurrencyExchange> findAllByCode(String currencyCode);
     Integer delete(Integer id);

@@ -15,7 +15,7 @@ public class Database {
 
     private static final String SQL_QUERY = """
                     CREATE TABLE currency_exchange(
-                    id INTEGER PRIMARY KEY, 
+                    id INTEGER PRIMARY KEY,
                     "value" FLOAT NOT NULL,
                     nominal INTEGER NOT NULL,
                     currency_name VARCHAR(50) NOT NULL,

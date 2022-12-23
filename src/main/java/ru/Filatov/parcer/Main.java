@@ -9,6 +9,8 @@ import ru.Filatov.parcer.serialization.CsvSerializer;
 import ru.Filatov.parcer.serialization.JsonSerializer;
 import ru.Filatov.parcer.serialization.XmlSerializer;
 
+import javax.swing.*;
+import java.awt.*;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -35,6 +37,5 @@ public class Main {
         csvSerializer.serialize(dbCurrencies);
         jsonSerializer.serialize(dbCurrencies);
         xmlSerializer.serialize(dbCurrencies);
-
     }
 }
