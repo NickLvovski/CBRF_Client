@@ -21,11 +21,16 @@ public class JsonSerializer implements SerializerService{
         return instance;
     }
 
-    @Override
     public Integer serialize(List<CurrencyExchange> currencies) {
+        String uri = "src/main/resources/currencyExchange.json";
+
+        return serialize(currencies, uri);
+    }
+
+    public Integer serialize(List<CurrencyExchange> currencies, String uri){
+        Path filePath = Paths.get(uri);
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.findAndRegisterModules();
-        Path filePath = Paths.get("src/main/resources/currencyExchange.json");
 
         try {
             if (Files.exists(filePath)) Files.delete(filePath);

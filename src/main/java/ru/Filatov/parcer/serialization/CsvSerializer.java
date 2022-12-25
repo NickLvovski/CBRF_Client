@@ -20,9 +20,8 @@ public class CsvSerializer implements SerializerService{
         return instance;
     }
 
-    @Override
-    public Integer serialize(List<CurrencyExchange> currencies){
-        Path filePath = Paths.get("src/main/resources/currencyExchange.csv");
+    public Integer serialize(List<CurrencyExchange> currencies, String path){
+        Path filePath = Paths.get(path);
 
         try{
             if (!Files.exists(filePath)) Files.createFile(filePath);
@@ -55,4 +54,9 @@ public class CsvSerializer implements SerializerService{
             return -1;
         }
     }
+
+    public Integer serialize(List<CurrencyExchange> currencies){
+        return serialize(currencies, "src/main/resources/currencyExchange.csv");
+    }
+
 }
